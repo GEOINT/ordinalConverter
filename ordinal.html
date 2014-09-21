@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Example Date Converter</title>
+        <link rel="stylesheet" href="javascript/dijit/themes/claro/claro.css">
+        <link rel="stylesheet" href="css/ordinal.css">
+
+        <script>dojoConfig = {parseOnLoad: true}</script>
+        <script src='../javascript/dojo/dojo.js'></script>
+        <!-- remove async if it's likley someone will click on this before the 
+         page is ready -->
+        <script src='../javascript/ordinal.js' async></script>
+        <script>
+            dojo.ready(function () {
+                /**
+                 * Registering an event handler programmatically, or 
+                 * by wrapping the call to the show method in a function 
+                 * and using that function reference for the declaritive 
+                 * callback, is highly recommended over providing a reference 
+                 * to the show method directly. 
+                 * 
+                 * This is because, in order to provide dojo.connect with a 
+                 * function reference to the show method, the singleton must 
+                 * be instantiated.  Registering it programmatically, as 
+                 * shown before with a closure, allows the object to be 
+                 * instantiated laziy only when called the first time, 
+                 * rather than on page load.
+                 * 
+                 */
+                dojo.connect(dijit.byId("converterButton"), "onClick",
+                        function () {
+                            var converter = DateConverters.OrdinalConverter.getInstance();
+                            converter.setDate(new Date()); //reset the date so it looks new
+                            converter.show();
+                        });
+            });
+        </script>
+    </head>
+    <body class="claro">
+
+        <button id="converterButton" data-dojo-type="dijit.form.Button" type="button">Open Converter</button>
+
+    </body>
+</html>

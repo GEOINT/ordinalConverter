@@ -1,0 +1,19 @@
+#ordinalDialog{
+    width: 25em;
+}
+#ordinalWrapper{
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+.ordinalText {
+    margin-left:2em;
+    float:left;
+}
+#ordinalCalWapper{
+    margin-bottom:2em;
+}
+.ordinalHeader {
+    font-weight: bold;
+    margin-left: -1em;
+}
